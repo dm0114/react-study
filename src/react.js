@@ -2,6 +2,7 @@
 
 // react-hook이란, renderRealDom을 호출할 때 vdom으로 호출될 함수의 개수와 순서가 같다는 점을 이용하여,
 // 이를 저장 및 활용하여 상태를 해당 호출 순서에 맞게 지원해주는 것이다.
+// 아마도 fiber에 기록되어 있겠지..?
 const hooks = [];
 let currentComponent = -1;
 
@@ -18,6 +19,7 @@ export const useState = (initialState) => {
   ];
 };
 
+/** Render(컴포넌트 호출) => Element */
 export const createElement = (type, props, ...children) => {
   if (typeof type === "function") {
     return type.apply(null, [props, ...children]);
